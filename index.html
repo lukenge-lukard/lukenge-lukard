@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Temporary fix</title>
+<style>
+:root{color-scheme:dark;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#0d1117;color:#c9d1d9}body{max-width:900px;margin:8vh auto;padding:24px}h1{font:inherit;font-size:clamp(16px,3vw,22px);margin:0 0 32px}section{border:1px solid #30363d;border-radius:6px;overflow:hidden}header{padding:15px 22px;border-bottom:1px solid #30363d;color:#8b949e;font-size:13px}#log{padding:22px;min-height:220px;line-height:1.9;font-size:clamp(11px,2.2vw,16px)}.row{white-space:pre-wrap}.green{color:#9ece8b}#note{color:#8b949e;padding:0 22px 22px;min-height:22px}footer{display:flex;gap:20px;align-items:center;margin-top:22px;flex-wrap:wrap}button,a{font:inherit;font-size:13px;color:#8b949e}button{background:transparent;border:1px solid #484f58;padding:8px 12px;border-radius:4px;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid #9ece8b;outline-offset:4px}button:hover{color:#c9d1d9}a{text-underline-offset:4px}
+</style>
+<h1>Temporary solutions have excellent survival instincts.</h1>
+<section aria-label="Temporary fix simulation"><header>system.log</header><div id="log" role="log" aria-live="polite"></div><div id="note"></div></section>
+<footer><button id="replay" type="button">Replay</button><button id="remove" type="button">Remove temporary fix</button><a href="https://github.com/lukenge-lukard/lukenge-lukard">View source</a></footer>
+<script>
+const events=[['2022','Added temporary fix','remove next sprint',1600],['2023','Replaced frontend','temporary fix retained',1300],['2024','Migrated database','temporary fix retained',1300],['2025','Rebuilt backend','temporary fix retained',1300],['2026','Tried removing temporary fix','everything stopped',2000],['2026','Restored temporary fix','architecture decision',3800]];
+const log=document.querySelector('#log'),note=document.querySelector('#note');let timer,removed=false;
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function add(i){const row=document.createElement('div');row.className='row'+(i===5?' green':'');row.textContent=events[i][0]+'  '+events[i][1];log.append(row);note.textContent='# '+events[i][2];}
+function start(){clearTimeout(timer);removed=false;log.replaceChildren();if(reduced){events.forEach((_,i)=>add(i));return;}let i=0;function next(){add(i);if(i<events.length-1){timer=setTimeout(next,events[i][3]);i++;}}next();}
+document.querySelector('#replay').onclick=start;
+document.querySelector('#remove').onclick=()=>{clearTimeout(timer);if(removed){note.textContent='# the rollback is now load-bearing too';return;}removed=true;log.replaceChildren();const row=document.createElement('div');row.className='row';row.textContent='503  Everything else depended on that.';log.append(row);note.textContent='# restoring temporary fix...';timer=setTimeout(()=>{row.textContent='200  Temporary fix restored.';row.classList.add('green');note.textContent='# we will revisit this next sprint';},reduced?0:1400);};
+start();
+</script>
+</html>

@@ -1,16 +1,18 @@
-## Hi there 👋
+Temporary solutions have excellent survival instincts.
 
-<!--
-**lukenge-lukard/lukenge-lukard** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+[![A temporary fix survives a frontend replacement, a database migration, and a backend rebuild. Removing it breaks everything. It is restored as an architecture decision.](assets/temporary-fix.gif)](https://github.com/lukenge-lukard/lukenge-lukard/blob/main/index.html)
 
-Here are some ideas to get you started:
+[View source](temporary_fix.py) · [Still frame](assets/temporary-fix.png)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<details>
+<summary>Run it</summary>
+
+```sh
+git clone https://github.com/lukenge-lukard/lukenge-lukard.git
+cd lukenge-lukard
+python3 temporary_fix.py
+```
+
+Or open `index.html` in your browser. Try removing the temporary fix.
+
+</details>
